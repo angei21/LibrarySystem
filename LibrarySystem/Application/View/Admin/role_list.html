@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>角色管理</title>
+    <link rel="stylesheet" href="./Public/Admin/css/pintuer.css">
+    <link rel="stylesheet" href="./Public/Admin/css/admin.css">
+</head>
+
+<body>
+<div class="container">
+    <div class="line">
+        <div class="xs6 xm4 xs3-move xm4-move">
+            <br /><br />
+            <div class="media media-y">
+            </div>
+            <br /><br />
+                <div class="panel"style="width: 550px;">
+                    <div class="panel-head"><strong>角色管理</strong></div>
+                    <div class="panel-body" style="padding:30px;">
+                        <div class="form-group">
+                            <div class="input" style="width: 500px;height: auto">
+                                <!--//-->
+                                <table border='1' width='100%' bordercolor='#000'>
+                                    <tr>
+                                        <th>角色名称</th>
+                                        <th>允许借书数</th>
+                                        <th>允许借书天数</th>
+                                        <th>是否使用该角色</th>
+                                        <th>修改</th>
+                                        <th>删除</th>
+                                    </tr>
+                                    <?php foreach($list as $rows){?>
+                                    <tr style="text-align: center">
+                                        <td><?=$rows['rolename']?></td>
+                                        <td><?=$rows['borrownums']?></td>
+                                        <td><?=$rows['borrowdays']?></td>
+                                        <td style="color: red"><?echo $rows['isopen']?'在用':'未使用' ?></td>
+                                        <td><a style="color: blue" href="index.php?p=Admin&c=Role&a=edit&id=<?=$rows['id']?>">修改</a></td>
+                                        <td><a style="color: blue" href="index.php?p=Admin&c=Role&a=del&id=<?=$rows['id']?>">删除</a></td>
+                                    </tr>
+                                    <?php }?>
+                                </table>
+                                <!--//-->
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel-foot text-center">
+                        <input type="submit" class="button button-block bg-main text-big"  style="float:left; margin-left: 38px;margin-right:10px;" value="添加角色" onClick="location.href='index.php?p=admin&c=role&a=add'"/>
+                        <input type="button" value="返回"  class="button button-block bg-main text-big" onClick="location.href='index.php?p=Admin&c=Page&a=adminPanel'" />
+                    </div>
+                </div>
+            <div class="text-right text-small text-gray padding-top"></div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

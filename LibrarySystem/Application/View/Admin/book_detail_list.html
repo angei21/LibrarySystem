@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>详细信息</title>
+    <link rel="stylesheet" href="./Public/Admin/css/pintuer.css">
+    <link rel="stylesheet" href="./Public/Admin/css/admin.css">
+</head>
+
+<body>
+<div class="container">
+    <div class="line">
+        <div class="xs6 xm4 xs3-move xm4-move">
+            <br /><br />
+            <div class="media media-y">
+            </div>
+            <br /><br />
+            <div class="panel">
+                <div class="panel-head">
+                    <strong>详细信息</strong>
+                    <a class="button button-little bg-yellow" style="margin-left: 260px"  href="index.php?p=Admin&c=Page&a=userPanel" target="_top">返回</a>
+                </div>
+
+                <div class="panel-body" style="padding:30px;">
+                    <div><b>书目信息：</b></div>
+                    <div class="form-group">
+                        <div class="input" style="height: 150px">
+                            <b><?=$bookInfo['bookname']?></b>
+                            <div style="font-size: 8px">作者：<?=$bookInfo['author']?></div>
+                            <div style="font-size: 8px">版次：<?=$bookInfo['edition']?></div>
+                            <div style="font-size: 8px">出版社：<?=$bookInfo['pubname']?></div>
+                            <div style="font-size: 8px">出版日期：<?=$bookInfo['pubdate']?></div>
+                            <div style="font-size: 8px">标准编码：<?=$bookInfo['isbn']?></div>
+                            <div style="font-size: 8px">索书号：<?=$bookInfo['localindex']?></div>
+                        </div>
+                    </div>
+                    <div><b>馆藏信息：</b></div>
+                    <?php foreach($bookaddrList as $row){?>
+                    <div class="form-group">
+                        <div class="input" style="height: 95px">
+                            <div style="font-size: 8px">条形码：<?=$row['barcode']?></div>
+                            <div style="font-size: 8px">馆藏地址：<?=$row['address']?></div>
+                            <div style="font-size: 8px">外借次数：<?=$row['lendingtimes']?></div>
+                            <div style="font-size: 8px">外借状态：<?php echo $row['lendingstatus']?'已外借':'未外借' ?></div>
+                        </div>
+                    </div>
+                    <?php }?>
+                </div>
+            </div>
+
+            <div class="text-right text-small text-gray padding-top"></div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

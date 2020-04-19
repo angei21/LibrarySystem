@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>首页</title>
+    <link rel="stylesheet" href="./Public/Admin/css/pintuer.css">
+    <link rel="stylesheet" href="./Public/Admin/css/admin.css">
+</head>
+
+<body>
+<div class="container">
+    <div class="line">
+        <div class="xs6 xm4 xs3-move xm4-move">
+            <br /><br />
+            <div class="media media-y">
+            </div>
+            <br /><br />
+            <form action="" method="post">
+            <div class="panel">
+                <div class="panel-head"><strong>读者中心</strong></div>
+                <div class="panel-body" style="padding:30px;">
+                    <div class="panel-body text-center">
+                        <img src="./Public/Admin/images/face.jpg" width="80" height="80" class="radius-circle" /><br />
+                        <label style="color: red"><?php echo $info['username']?></label>
+                    </div>
+                    <div class="form-group">
+                        <div class="field field-icon-right">
+                            <a class="input" href="index.php?p=Admin&c=Book&a=search" style="text-align: center">书目检索</a>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="field field-icon-right">
+                            <a class="input" href="index.php?p=Admin&c=LendInfo&a=getLendInfoByUserId" style="text-align: center">借阅/借阅管理</a>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="field field-icon-right">
+                            <a href="index.php?p=Admin&c=User&a=updatePwd" class="input" style="text-align: center">修改密码</a>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="field field-icon-right">
+                            <a class="input" href="index.php?p=Admin&c=Login&a=logout" style="text-align: center">退出登录</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel-foot text-center">
+                </div>
+            </div>
+            </form>
+            <div class="text-right text-small text-gray padding-top"></div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

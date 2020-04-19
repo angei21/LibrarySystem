@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>新增馆藏信息</title>
+  <link rel="stylesheet" href="./Public/Admin/css/pintuer.css">
+  <link rel="stylesheet" href="./Public/Admin/css/admin.css">
+  <style>
+    #msg{
+      color: #FF0000;
+    }
+  </style>
+</head>
+
+<body>
+<div class="container">
+  <div class="line">
+    <div class="xs6 xm4 xs3-move xm4-move">
+      <br /><br />
+      <div class="media media-y">
+      </div>
+      <br /><br />
+      <form action="" method="post">
+        <div class="panel">
+          <div class="panel-head"><strong>新增馆藏信息</strong></div>
+          <div class="panel-body" style="padding:30px;">
+            <div class="form-group">
+              <div class="field field-icon-right">
+                <label style="color: black;">借阅条形码：</label>
+                <input type="text" class="input" name="barcode" placeholder="请输入借阅条形码" />
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="field field-icon-right">
+                <label style="color: black;">馆藏地址：</label>
+                <input type="text" class="input" name="address" placeholder="请输入馆藏地址" />
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="field field-icon-right">
+                <label style="color: black;">外借次数：</label>
+                <input type="text" class="input" name="lendingtimes" value="0" placeholder="请输入外借次数" />
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="field field-icon-right">
+                <label style="color: black;">外借状态<span style="color: red">[0：未借；1：外借]</span>：</label>
+                <input type="text" class="input" name="lendingstatus" value="0" placeholder="请输入外借状态" />
+              </div>
+            </div>
+          </div>
+          <!--需要提供图书id(外键)，这里方式是通过这种方式获取。隐藏属性。-->
+          <input type="hidden" name="bookid" value=<?=$bookid?>>
+          <div class="panel-foot text-center">
+            <input type="submit" class="button button-block bg-main text-big"  style="float:left;  margin-left: 25px;margin-right:10px;" value="添加" />
+            <input type="button"  class="button button-block bg-main text-big" value="返回" onClick="location.href='index.php?p=admin&c=BookAddr&a=getAddrByBookId&bookid=<?=$bookid?>'" />
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

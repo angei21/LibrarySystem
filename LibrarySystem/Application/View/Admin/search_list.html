@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>搜索结果</title>
+    <link rel="stylesheet" href="./Public/Admin/css/pintuer.css">
+    <link rel="stylesheet" href="./Public/Admin/css/admin.css">
+</head>
+
+<body>
+<div class="container">
+    <div class="line">
+        <div class="xs6 xm4 xs3-move xm4-move">
+            <br /><br />
+            <div class="media media-y">
+            </div>
+            <br /><br />
+            <div class="panel">
+                <div class="panel-head">
+                    <strong>搜索结果</strong>
+                    <a class="button button-little bg-yellow" style="margin-left: 260px"  href="index.php?p=Admin&c=Book&a=search" target="_top">返回</a>
+                </div>
+                <div class="panel-body" style="padding:30px;">
+                    <?php foreach($list as $rows){?>
+                    <div class="form-group">
+                        <div class="input" style="height: 172px">
+                            <b><?=$rows['bookname']?></b>
+                            <div style="font-size: 8px">作者：<?=$rows['author']?></div>
+                            <div style="font-size: 8px">版次：<?=$rows['edition']?></div>
+                            <div style="font-size: 8px">出版社：<?=$rows['pubname']?></div>
+                            <div style="font-size: 8px">出版日期：<?=$rows['pubdate']?></div>
+                            <div style="font-size: 8px">标准编码：<?=$rows['isbn']?></div>
+                            <div style="font-size: 8px">索书号：<?=$rows['localindex']?></div>
+                            <div style="font-size: 8px">
+                                <a href="index.php?p=Admin&c=BookAddr&a=getBookAddrDetails&bookid=<?=$rows['id']?>" style="color: red"><b>详情</b></a>
+                            </div>
+                        </div>
+                    </div>
+                    <?php }?>
+                </div>
+            </div>
+            <div class="text-right text-small text-gray padding-top"></div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

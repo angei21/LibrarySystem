@@ -1,0 +1,29 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>无标题文档</title>
+</head>
+
+<body>
+<a href="/LibrarySystem?p=Admin&c=User&a=add">添加用户</a>
+<table border='1' width='980' bordercolor='#000'>
+    <tr>
+        <th>学号/职工号</th>
+        <th>用户姓名</th>
+        <th>角色ID</th>
+        <th>修改</th>
+        <th>删除</th>
+    </tr>
+    <?php foreach($list as $rows){?>
+    <tr>
+        <td><?=$rows['sno']?></td>
+        <td><?=$rows['username']?></td>
+        <td><?=$rows['roleid']?></td>
+        <td><a href="/LibrarySystem?p=Admin&c=User&a=update&id=<?=$rows['id']?>">修改</a></td>
+        <td><a href="/LibrarySystem?p=Admin&c=User&a=del&id=<?=$rows['id']?>">删除</a></td>
+    </tr>
+    <?php }?>
+</table>
+</body>
+</html>

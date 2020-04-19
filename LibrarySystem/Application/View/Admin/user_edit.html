@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+<head>
+    <title>修改用户信息</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+</head>
+<body>
+<form method="post" action="">
+    学号/职工号： <input type="text" name="sno" value='<?=$info['sno']?>'> <br/>
+    用户姓名： <input type="text" name="username" value='<?=$info['username']?>'> <br/>
+    角色ID： <input type="text" name="roleid" value='<?=$info['roleid']?>'> <br/>
+
+    <!--修改逻辑中，需要提供id，这里方式是通过这种方式获取。隐藏属性。-->
+    <input type="hidden" name="id" value=<?=$info['id']?>>
+    <input type="submit" value="提交">
+</form>
+</body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>图书基本信息管理</title>
+    <link rel="stylesheet" href="./Public/Admin/css/pintuer.css">
+    <link rel="stylesheet" href="./Public/Admin/css/admin.css">
+</head>
+
+<body>
+<div class="container">
+    <div class="line">
+        <div class="xs6 xm4 xs3-move xm4-move">
+            <br /><br />
+            <div class="media media-y">
+            </div>
+            <br /><br />
+            <div class="panel"style="width: 1035px;">
+                <div class="panel-head"><strong>图书基本信息管理</strong></div>
+                <div class="panel-body" style="padding:30px;">
+                    <div class="form-group">
+                        <div class="input" style="width: 970px;height: auto">
+                            <table border='1' width='100%' bordercolor='#000' >
+                                <tr style="text-align:center;">
+                                    <th>图书名称</th>
+                                    <th>版次</th>
+                                    <th>作者</th>
+                                    <th>出版社名称</th>
+                                    <th>出版日期</th>
+                                    <th>价格</th>
+                                    <th>标准编码</th>
+                                    <th>索书号</th>
+                                    <th>修改</th>
+                                    <th>删除</th>
+                                    <th>馆藏信息</th>
+                                </tr>
+                                <?php foreach($list as $rows){?>
+                                <tr style="text-align: center">
+                                    <td><?=$rows['bookname']?></td>
+                                    <td><?=$rows['edition']?></td>
+                                    <td><?=$rows['author']?></td>
+                                    <td><?=$rows['pubname']?></td>
+                                    <td><?=$rows['pubdate']?></td>
+                                    <td><?=$rows['price']?></td>
+                                    <td><?=$rows['isbn']?></td>
+                                    <td><?=$rows['localindex']?></td>
+                                    <td><a style="color: blue" href="index.php?p=admin&c=book&a=edit&id=<?=$rows['id']?>">修改</a></td>
+                                    <td><a style="color: blue" href="index.php?p=admin&c=book&a=del&id=<?=$rows['id']?>">删除</a></td>
+                                    <td><a style="color: blue" href="index.php?p=admin&c=BookAddr&a=getAddrByBookId&bookid=<?=$rows['id']?>">管理</a></td>
+                                </tr>
+                                <?php }?>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel-foot text-center">
+                    <input type="submit" class="button button-block bg-main text-big"  style="float:left; margin-left: 245px;margin-right:20px;width: 200px;" value="新增图书" onClick="location.href='index.php?p=admin&c=book&a=add'"/>
+                    <input type="button" value="返回"  class="button button-block bg-main text-big" style="width: 200px;" onClick="location.href='index.php?p=Admin&c=Page&a=adminPanel'" />
+                </div>
+            </div>
+            <div class="text-right text-small text-gray padding-top"></div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

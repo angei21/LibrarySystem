@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>修改馆藏信息</title>
+    <link rel="stylesheet" href="./Public/Admin/css/pintuer.css">
+    <link rel="stylesheet" href="./Public/Admin/css/admin.css">
+    <style>
+        #msg{
+            color: #FF0000;
+        }
+    </style>
+</head>
+
+<body>
+<div class="container">
+    <div class="line">
+        <div class="xs6 xm4 xs3-move xm4-move">
+            <br /><br />
+            <div class="media media-y">
+            </div>
+            <br /><br />
+            <form action="" method="post">
+                <div class="panel">
+                    <div class="panel-head"><strong>修改馆藏信息</strong></div>
+                    <div class="panel-body" style="padding:30px;">
+                        <div class="form-group">
+                            <div class="field field-icon-right">
+                                <label style="color: black;">借阅条形码：</label>
+                                <input type="text" class="input" name="barcode" value='<?=$info['barcode']?>' />
+                                <span id='msg'></span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="field field-icon-right">
+                                <label style="color: black;">馆藏地址：</label>
+                                <input type="text" class="input" name="address" value='<?=$info['address']?>' />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="field field-icon-right">
+                                <label style="color: black;">外借状态<span style="color: red">[0：未借；1：外借]</span>：</label>
+                                <input type="text" class="input" name="lendingstatus" value='<?=$info['lendingstatus']?>' />
+                            </div>
+                        </div>
+                    </div>
+                    <!--修改逻辑中，需要提供id，这里方式是通过这种方式获取。隐藏属性。-->
+                    <input type="hidden" name="id" value=<?=$info['id']?>>
+                    <!--同时携带下图书id（外键），用于展示。隐藏属性。-->
+                    <input type="hidden" name="bookid" value=<?=$info['bookid']?>>
+                    <div class="panel-foot text-center">
+                        <input type="submit" class="button button-block bg-main text-big"  style="float:left;  margin-left: 25px;margin-right:10px;" value="修改" />
+                        <input type="button"  class="button button-block bg-main text-big" value="返回" onClick="location.href='index.php?p=admin&c=BookAddr&a=getAddrByBookId&bookid=<?=$info['bookid']?>'" />
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

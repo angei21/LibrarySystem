@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>馆藏信息管理</title>
+    <link rel="stylesheet" href="./Public/Admin/css/pintuer.css">
+    <link rel="stylesheet" href="./Public/Admin/css/admin.css">
+</head>
+
+<body>
+<div class="container">
+    <div class="line">
+        <div class="xs6 xm4 xs3-move xm4-move">
+            <br /><br />
+            <div class="media media-y">
+            </div>
+            <br /><br />
+            <div class="panel"style="width: 550px;">
+                <div class="panel-head"><strong>馆藏信息管理</strong></div>
+                <div class="panel-body" style="padding:10px;">
+                    <div style="padding:3px;"><b>图书基本信息：</b></div>
+                    <div class="form-group" style="margin-bottom:8px">
+                        <div class="input" style="height: 150px">
+                            <b><?=$bookInfo['bookname']?></b>
+                            <div style="font-size: 8px">作者：<?=$bookInfo['author']?></div>
+                            <div style="font-size: 8px">版次：<?=$bookInfo['edition']?></div>
+                            <div style="font-size: 8px">出版社：<?=$bookInfo['pubname']?></div>
+                            <div style="font-size: 8px">出版日期：<?=$bookInfo['pubdate']?></div>
+                            <div style="font-size: 8px">标准编码：<?=$bookInfo['isbn']?></div>
+                            <div style="font-size: 8px">索书号：<?=$bookInfo['localindex']?></div>
+                        </div>
+                    </div>
+                    <div style="padding:3px;"><b>馆藏信息：</b></div>
+                    <div class="form-group">
+                        <div class="input" style="width: 525px;height: auto">
+                            <table border='1' width='100%' bordercolor='#000'>
+                                <tr>
+                                    <th>借阅条形码</th>
+                                    <th>馆藏地址</th>
+                                    <th>外借次数</th>
+                                    <th>外借状态</th>
+                                    <th>修改</th>
+                                    <th>删除</th>
+                                </tr>
+                                <?php foreach($bookaddrList as $rows){?>
+                                <tr style="text-align: center">
+                                    <td><?=$rows['barcode']?></td>
+                                    <td><?=$rows['address']?></td>
+                                    <td><?=$rows['lendingtimes']?>次</td>
+                                    <td><?=($rows['lendingstatus']==1)?'已外借':'未外借'?></td>
+                                    <td><a style="color: blue" href="index.php?p=admin&c=BookAddr&a=edit&id=<?=$rows['id']?>">修改</a></td>
+                                    <td><a style="color: blue" href="index.php?p=admin&c=BookAddr&a=del&id=<?=$rows['id']?>&bookid=<?=$bookInfo['id']?>?>">删除</a></td>
+                                </tr>
+                                <?php }?>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel-foot text-center">
+                    <input type="submit" class="button button-block bg-main text-big"  style="float:left; margin-left: 130px;margin-right:10px;width: 120px;" value="添加馆藏信息" onClick="location.href='index.php?p=admin&c=BookAddr&a=add&bookid=<?=$bookInfo['id']?>'"/>
+                    <input type="button" value="返回"  class="button button-block bg-main text-big" style="width: 120px;" onClick="location.href='index.php?p=Admin&c=Book&a=list'" />
+                </div>
+            </div>
+            <div class="text-right text-small text-gray padding-top"></div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

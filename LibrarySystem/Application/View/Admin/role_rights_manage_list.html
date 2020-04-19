@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>角色权限管理</title>
+    <link rel="stylesheet" href="./Public/Admin/css/pintuer.css">
+    <link rel="stylesheet" href="./Public/Admin/css/admin.css">
+</head>
+
+<body>
+<div class="container">
+    <div class="line">
+        <div class="xs6 xm4 xs3-move xm4-move">
+            <br /><br />
+            <div class="media media-y">
+            </div>
+            <br /><br />
+            <div class="panel"style="width: 550px;">
+                <div class="panel-head"><strong>角色权限管理</strong></div>
+                <div class="panel-body" style="padding:30px;">
+                    <div class="form-group">
+                        <div class="form-group">
+                            <form action="" method="post">
+                                <div class="field field-icon-right">
+                                    <input type="text" style="width: 240px;margin-right:10px;" name="searchSno" placeholder="请输入要查找的学号/职工号" />
+                                    <input type="submit" style="width:120px;" value="立即搜索" />
+                                </div>
+                            </form>
+                        </div>
+
+                        <div class="input" style="width: 500px;height: auto">
+                            <!--//-->
+                            <table border='1' width='100%' bordercolor='#000'>
+                                <tr>
+                                    <th>学号/职工号</th>
+                                    <th>姓名</th>
+                                    <th>权限修改</th>
+                                </tr>
+
+                                <?php foreach($userList as $rows){?>
+                                <form action="" method="post">
+                                <tr style="text-align: center">
+                                    <input type="hidden" name="userid" value=<?=$rows['id']?> />
+                                    <td><?=$rows['sno']?></td>
+                                    <td><?=$rows['username']?></td>
+                                    <td>
+                                        <select name="newRoleId" style="margin-right:20px">
+                                            <?php foreach($roleList as $role){?>
+                                            <option value ="<?=$role['id']?>" <?=($role['id']==$rows['roleid'])?'selected':''?>>
+                                                <?=$role['rolename']?>
+                                            </option>
+                                            <?php }?>
+                                        </select>
+                                        <input type="submit" style="color: red" value="点击修改" />
+                                    </td>
+                                </tr>
+                                </form>
+                                <?php }?>
+                            </table>
+                            <!--//-->
+                        </div>
+                    </div>
+                </div>
+                <div class="panel-foot text-center">
+                    <input type="button" value="返回" style=" margin-left: 145px;" class="button button-block bg-main text-big" onClick="location.href='index.php?p=Admin&c=Page&a=adminPanel'" />
+                </div>
+            </div>
+            <div class="text-right text-small text-gray padding-top"></div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
